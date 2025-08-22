@@ -1,0 +1,351 @@
+/* Global Styles and CS:GO‑inspired colour palette */
+/* Palette derived from the CS:GO colour scheme: dark blues, browns and striking orange accents */
+
+:root {
+  /* Background and base colours */
+  --primary-bg: #0c0f12; /* deep navy/black for the page background */
+  --secondary-bg: #1b1f27; /* slightly lighter dark shade for cards and sections */
+  --card-bg: #262d3a; /* card backgrounds */
+  --nav-bg: rgba(12, 15, 18, 0.9); /* translucent nav background */
+
+  /* Accent colours */
+  --accent-gold: #de9b35; /* warm gold/orange accent */
+  --accent-sand: #ccba7c; /* soft sand highlight */
+  --accent-blue: #5d79ae; /* muted blue accent */
+
+  /* Typography colours */
+  --text-primary: #f0f0f0; /* light text for dark background */
+  --text-secondary: #b0b6c0; /* secondary text colour */
+  --heading-colour: #ffffff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin-left: 1.5rem;
+}
+
+.navbar a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.navbar a:hover {
+  color: var(--accent-gold);
+}
+
+/* Hamburger menu for mobile */
+.navbar .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navbar .menu-toggle span {
+  height: 2px;
+  width: 25px;
+  background: var(--text-primary);
+  margin: 4px 0;
+  transition: 0.3s;
+}
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--nav-bg);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .navbar ul.open {
+    max-height: 300px;
+  }
+
+  .navbar li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .navbar .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  width: 100%;
+  background-image: url('../img/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--heading-colour);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 900px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-gold);
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-gold);
+  color: #0c0f12;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--accent-sand);
+}
+
+/* Sections */
+.section {
+  padding: 4rem 1rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--accent-gold);
+}
+
+.section .content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* About section */
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.about-grid .profile-img {
+  flex: 0 0 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.about-grid .profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-grid .bio {
+  flex: 1;
+  min-width: 250px;
+  color: var(--text-secondary);
+}
+
+.bio p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Timeline for experience */
+.timeline {
+  position: relative;
+  margin-left: 1rem;
+  padding-left: 2rem;
+  border-left: 2px solid var(--accent-gold);
+}
+
+.timeline-item {
+  margin-bottom: 2rem;
+}
+
+.timeline-item h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--accent-blue);
+}
+
+.timeline-item h4 {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: var(--accent-gold);
+}
+
+.timeline-item p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Cards for projects and skills */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-top: 0;
+  color: var(--accent-gold);
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* Contact Section */
+.contact-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--secondary-bg);
+  color: var(--text-primary);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--accent-gold);
+  color: #0c0f12;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: var(--accent-sand);
+}
+
+/* Footer */
+.footer {
+  background: var(--nav-bg);
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
