@@ -23,7 +23,15 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
+  /* Apply a parallax background image to the entire page. The
+     `background-attachment: fixed` property makes the image stay
+     fixed relative to the viewport as the user scrolls, creating
+     a parallax effect. */
   background-color: var(--primary-bg);
+  background-image: url('../img/parallax-bg.png');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   color: var(--text-primary);
   scroll-behavior: smooth;
 }
@@ -152,9 +160,8 @@ html, body {
 .hero {
   min-height: 80vh;
   width: 100%;
-  background-image: url('../img/hero-bg.png');
-  background-size: cover;
-  background-position: center;
+  /* Remove the hero background image; the global body background
+     provides the parallax effect. */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -367,4 +374,22 @@ html, body {
   color: var(--text-secondary);
   font-size: 0.85rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Scroll animation object styles */
+/* Scroll animation object styles */
+/* The floating object is fixed relative to the viewport and sits
+   behind the main content. It rotates and moves via JavaScript in
+   response to scrolling. */
+.scroll-object {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: auto;
+  transform: translate(-50%, -50%) rotate(0deg);
+  transition: transform 0.1s linear;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.9;
 }
