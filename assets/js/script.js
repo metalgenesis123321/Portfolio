@@ -36,4 +36,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Fade the hero overlay based on scroll position.  As the user
+  // scrolls down from the top of the page, the overlay’s opacity
+  // decreases, revealing the background and creating a smooth
+  // transition into the rest of the page content.  The effect is
+  // similar to how Apple’s hero sections fade as you scroll.
+  const heroSection = document.querySelector('.hero');
+  const heroOverlay = document.querySelector('.hero-overlay');
+  function updateHeroOverlay() {
+    if (!heroSection || !heroOverlay) return;
+    const rect = heroSection.getBoundingClientRect();
+    const height = rect.height;
+    // Compute how far the hero section has been scrolled.  When the
+    // top of the hero reaches the top of the viewport, progress is 0;
+    // when the hero has been scrolled up by its full height, progress
+    // reaches 1.  Clamp the value between 0 and 1.
+    const progress = Math.min(Math.max(-rect.top / height, 0), 1);
+    heroOverlay.style.opacity = 1 - progress;
+  }
+  // Run once to set the initial state, then update on scroll and
+  // resize events.
+  updateHeroOverlay();
+  window.addEventListener('scroll', updateHeroOverlay);
+  window.addEventListener('resize', updateHeroOverlay);
 });

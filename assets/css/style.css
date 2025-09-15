@@ -179,6 +179,25 @@ html, body {
   background: rgba(0, 0, 0, 0.6);
 }
 
+/*
+  A separate overlay inside the hero section provides a dark tint that
+  fades away as you scroll down.  The overlay covers the entire hero
+  and is controlled via JavaScript to gradually reveal the background
+  image when transitioning to the next section.  Pointer events are
+  disabled so the overlay doesn’t interfere with clicking on the
+  “Learn More” button.
+*/
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  pointer-events: none;
+  transition: opacity 0.4s ease-out;
+}
+
 .hero-content {
   position: relative;
   max-width: 900px;
@@ -237,6 +256,9 @@ html, body {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  /* Add space above the grid so that the sticky profile image does not
+     overlap with the sticky section heading. */
+  margin-top: 1.5rem;
 }
 
 /*
@@ -256,7 +278,7 @@ html, body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: -webkit-sticky;
   position: sticky;
-  top: 6rem; /* offset below the navbar */
+  top: 9rem; /* offset below the navbar and section heading to avoid overlap */
   align-self: flex-start;
 }
 
@@ -414,7 +436,10 @@ html, body {
   position: -webkit-sticky;
   position: sticky;
   top: 4rem; /* position below the navigation bar */
-  background: var(--primary-bg);
+  /* Use a semi‑transparent background for sticky headings.  This
+     provides contrast against the parallax background without
+     creating a solid bar across the page. */
+  background: rgba(12, 15, 18, 0.85);
   padding: 0.5rem 0;
   z-index: 5;
 }
