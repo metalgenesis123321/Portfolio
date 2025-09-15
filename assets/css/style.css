@@ -239,12 +239,25 @@ html, body {
   gap: 2rem;
 }
 
+/*
+  The profile image in the About section becomes sticky so that it
+  remains visible as you scroll through the biography text.  This
+  creates a “pinned” effect similar to the scroll animations on the
+  Apple website: the image stays fixed in its column until the user
+  reaches the end of the About section.  The `top` value offsets the
+  image below the fixed navigation bar.  The `align-self` property
+  ensures the sticky element starts at the top of its flex row.
+*/
 .about-grid .profile-img {
   flex: 0 0 200px;
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 6rem; /* offset below the navbar */
+  align-self: flex-start;
 }
 
 .about-grid .profile-img img {
@@ -376,20 +389,34 @@ html, body {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Scroll animation object styles */
-/* Scroll animation object styles */
-/* The floating object is fixed relative to the viewport and sits
-   behind the main content. It rotates and moves via JavaScript in
-   response to scrolling. */
-.scroll-object {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: auto;
-  transform: translate(-50%, -50%) rotate(0deg);
-  transition: transform 0.1s linear;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.9;
+/* Scroll animation: fade and slide elements into view */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*
+  Sticky section headings
+  Headings marked with the `.sticky-heading` class will stick to the top
+  of the viewport as the user scrolls through their respective
+  sections.  This subtle “pinning” effect keeps the context visible
+  while the associated content moves underneath.  A background colour
+  matching the page ensures the heading doesn’t overlap with the
+  parallax image behind it.
+*/
+.sticky-heading {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 4rem; /* position below the navigation bar */
+  background: var(--primary-bg);
+  padding: 0.5rem 0;
+  z-index: 5;
+}
+
+/* Scroll animation object styles */
