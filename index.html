@@ -10,18 +10,26 @@
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <a href="index.html" class="logo">Shravan</a>
+    <a href="#" class="logo">Shravan</a>
     <div class="menu-toggle">
       <span></span>
       <span></span>
       <span></span>
     </div>
+    <!--
+      The navigation uses in‑page anchors to smoothly scroll to
+      different sections of the portfolio. Each <a> element’s href
+      corresponds to the id of a section further down the page.  When
+      clicked, the browser will automatically scroll to that element
+      because of the `scroll-behavior: smooth` property defined in
+      global CSS.
+    -->
     <ul>
-      <li><a href="about.html">About</a></li>
-      <li><a href="experience.html">Experience</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -29,17 +37,220 @@
   <section class="hero">
     <div class="hero-content">
       <h1>Hello, I'm Shravan Swami</h1>
-      <p>A data‑science graduate student and software developer who loves to push performance boundaries and frag out on CS:GO. I enjoy building scalable applications and exploring AI‑driven solutions.</p>
-      <a href="about.html" class="cta-button">Learn More</a>
+      <p>
+        A data‑science graduate student and software developer who loves
+        to push performance boundaries and frag out on CS:GO. I enjoy
+        building scalable applications and exploring AI‑driven solutions.
+      </p>
+      <!-- The "Learn More" button now scrolls down to the About section -->
+      <a href="#about" class="cta-button">Learn More</a>
     </div>
   </section>
 
-  <!-- Intro Section -->
+  <!-- Welcome Section -->
   <section class="section">
     <div class="content">
       <h2>Welcome to My Portfolio</h2>
-      <p>On this site you’ll find my professional journey, the projects I’ve built, and the skills I’ve honed along the way. I’m currently pursuing a Master’s in Data Science, Analytics and Engineering at Arizona State University and have previously worked on backend development for financial platforms and network management systems. In my spare time you’ll find me clocking hours in CS:GO and staying active with soccer and karate.</p>
-      <p>Use the navigation links above to explore and learn more about my work.</p>
+      <p>
+        On this one‑page site you’ll find my professional journey, the
+        projects I’ve built, and the skills I’ve honed along the way. I’m
+        currently pursuing a Master’s in Data Science, Analytics and
+        Engineering at Arizona State University and have previously
+        worked on backend development for financial platforms and
+        network management systems. In my spare time you’ll find me
+        clocking hours in CS:GO and staying active with soccer and
+        karate.
+      </p>
+      <p>
+        Use the navigation links above to explore and jump to the
+        different sections below.
+      </p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="content">
+      <h2>About Me</h2>
+      <div class="about-grid">
+        <div class="profile-img">
+          <img src="./assets/img/profile.jpg" alt="Shravan Swami portrait" />
+        </div>
+        <div class="bio">
+          <p>
+            Hi! I’m Shravan Swami, a Master’s student in Data Science,
+            Analytics and Engineering at Arizona State University (GPA 3.67).
+            My academic foundation blends fundamental computer science
+            with advanced data analysis, including courses on cloud
+            computing, statistical machine learning and large‑scale
+            data processing.
+          </p>
+          <p>
+            Before starting my graduate studies, I completed a Bachelor of
+            Technology in Computer Science and Engineering from Hindustan
+            Institute of Technology and Science (GPA 8.51/10) where I
+            learned the fundamentals of object‑oriented programming,
+            databases, algorithms and AI.
+          </p>
+          <p>
+            Outside the classroom, I channel my competitive spirit through
+            gaming and sports. With more than 5,000 hours of CS:GO under
+            my belt, I know a thing or two about strategy and fast
+            reflexes. I’m also a dedicated karate practitioner (black
+            belt) and captained my school and college soccer teams.
+            These experiences taught me discipline, leadership and
+            teamwork—qualities I carry into my professional work.
+          </p>
+          <p>
+            Recognized for my technical skills and dedication, I was
+            awarded <strong>Best Intern of the Month</strong> at
+            Intellect Design Arena in 2024 after winning a Java coding
+            competition for writing highly efficient solutions. I’m
+            always eager to take on new challenges and explore
+            innovative technologies.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="content">
+      <h2>Professional Experience</h2>
+      <div class="timeline">
+        <!-- Experience 1 -->
+        <div class="timeline-item">
+          <h3>Software Developer Intern</h3>
+          <h4>Intellect Design Arena – Chennai, India | Jan 2024 – Jul 2024</h4>
+          <p>
+            Designed and developed the backend for a next‑generation
+            financial management web application intended to replace a
+            legacy system. Focused on building scalable modules,
+            optimizing RESTful APIs and improving database schemas to
+            deliver faster, more responsive user experiences.
+            Implemented stored procedures and automated key processes,
+            resulting in significant performance improvements.
+          </p>
+        </div>
+        <!-- Experience 2 -->
+        <div class="timeline-item">
+          <h3>Network Associate Intern</h3>
+          <h4>ISSQUARED – Hyderabad, India | Aug 2022 – Jul 2023</h4>
+          <p>
+            Diagnosed and resolved network connectivity issues by
+            analysing packet data and traffic patterns, ensuring
+            stable and efficient network operations. Addressed
+            hardware malfunctions through device replacements and
+            firmware updates, maintained uptime through routine
+            checks, and collaborated with senior engineers to
+            implement security protocols and optimise network
+            performance.
+          </p>
+        </div>
+        <!-- Experience 3 -->
+        <div class="timeline-item">
+          <h3>Research Intern</h3>
+          <h4>TCS Innovation Labs IITM Research Park – India | Jun 2025 – Aug 2025</h4>
+          <p>Details coming soon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="content">
+      <h2>Projects</h2>
+      <div class="card-grid">
+        <!-- Project 1 -->
+        <div class="card">
+          <h3>Facial Ensemble Disentanglement</h3>
+          <p>
+            Developed a facial recognition tool capable of isolating
+            individual identities in group photographs. Implemented
+            using Python with TensorFlow and Keras, the model
+            leverages ensemble learning to disentangle features and
+            accurately identify faces. Deployed on AWS for seamless
+            scalability and reliability.
+          </p>
+        </div>
+        <!-- Project 2 -->
+        <div class="card">
+          <h3>Medical Image Report Generation</h3>
+          <p>
+            Designed a system that automatically generates radiology
+            reports by combining computer vision and natural language
+            processing. Utilised transformer models and memory‑driven
+            modules to interpret medical images and employed the
+            PubMed BERT model for text generation. Trained and hosted
+            on AWS SageMaker.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Education Section -->
+  <section id="skills" class="section">
+    <div class="content">
+      <h2>Skills</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Programming Languages</h3>
+          <p>C, C++, Java, Python, R</p>
+        </div>
+        <div class="card">
+          <h3>Web Technologies</h3>
+          <p>HTML, CSS, PHP, Node.js</p>
+        </div>
+        <div class="card">
+          <h3>Databases</h3>
+          <p>MySQL, MongoDB</p>
+        </div>
+      </div>
+    </div>
+    <div class="content">
+      <h2>Education</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Master of Science – Data Science, Analytics & Engineering</h3>
+          <p>
+            Arizona State University, Tempe, AZ (Aug 2024 – May 2026)<br />
+            GPA: 3.67
+          </p>
+          <p><em>Relevant coursework:</em> Cloud Computing, Data Processing at Scale, Statistical Machine Learning.</p>
+        </div>
+        <div class="card">
+          <h3>B.Tech – Computer Science & Engineering</h3>
+          <p>
+            Hindustan Institute of Technology and Science, Chennai,
+            India (Aug 2020 – May 2024)<br />GPA: 8.51/10
+          </p>
+          <p><em>Relevant coursework:</em> Object‑oriented Programming, RDBMS, Data Structures, Operating Systems, Computer Networks, Artificial Intelligence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="content">
+      <h2>Get In Touch</h2>
+      <div class="contact-info">
+        <p>
+          If you’d like to discuss job opportunities, collaborations or
+          just say hi, feel free to drop me a message using the form
+          below or send me an email directly at
+          <a href="mailto:sswami28@asu.edu" style="color: var(--accent-gold); text-decoration: underline;">sswami28@asu.edu</a>.
+        </p>
+      </div>
+      <form class="contact-form" action="mailto:sswami28@asu.edu" method="post" enctype="text/plain">
+        <input type="text" name="Name" placeholder="Your Name" required />
+        <input type="email" name="Email" placeholder="Your Email" required />
+        <textarea name="Message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </section>
 

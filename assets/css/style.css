@@ -39,7 +39,12 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1.5rem;
+  /* Reduce horizontal padding and add extra right padding to account
+     for the browser scrollbar on small screens. This helps ensure
+     that the last navigation item remains visible and doesn’t get
+     clipped behind the scrollbar. */
+  padding: 0.5rem 0.8rem 0.5rem 0.8rem;
+  padding-right: 2rem;
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -56,18 +61,23 @@ html, body {
 .navbar ul {
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
+  /* Align nav items to the start to maximise available space */
+  justify-content: flex-start;
 }
 
 .navbar li {
-  margin-left: 1rem;
+  /* Reduce spacing between nav items to avoid overflow on medium screens */
+  margin-left: 0.4rem;
 }
 
 .navbar a {
   color: var(--text-primary);
   text-decoration: none;
-  font-size: 0.9rem;
+  /* Further reduce font size on large screens so nav items fit */
+  font-size: 0.7rem;
   transition: color 0.2s ease;
 }
 
@@ -80,6 +90,8 @@ html, body {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  /* Push the hamburger icon to the far right of the navbar when visible */
+  margin-left: auto;
 }
 
 .navbar .menu-toggle span {
@@ -90,19 +102,8 @@ html, body {
   transition: 0.3s;
 }
 
-.menu-toggle.open span:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
-}
-
-.menu-toggle.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.open span:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-@media (max-width: 768px) {
+/* Collapse the navigation into a hamburger on narrower screens */
+@media (max-width: 1200px) {
   .navbar ul {
     position: absolute;
     top: 100%;
@@ -128,6 +129,24 @@ html, body {
     display: flex;
   }
 }
+
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Always show the hamburger menu and collapse the navigation into a vertical dropdown.
+   This avoids horizontal overflow issues on small to medium screens. */
+/* Hide the list by default; it will expand when the `.open` class is applied via JavaScript. */
+/* Restore default horizontal nav layout */
+
 
 /* Hero Section */
 .hero {
